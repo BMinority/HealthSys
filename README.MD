@@ -3,7 +3,11 @@
 O HealthSys é um sistema desenvolvido para auxiliar clínicas e hospitais no gerenciamento do atendimento de seus pacientes, controle de estoque de medicamentos, histórico de entrada e saída de medicamentos, controle de receituário e outras funcionalidades relacionadas. Este repositório contém os arquivos e o código-fonte necessários para executar o sistema.
 
 ## Demonstração
-[HealthSys]()
+- Login: admin
+- Senha: admin
+
+[HealthSys](https://bminority.github.io/HealthSys/)
+
 
 ## Funcionalidades
 
