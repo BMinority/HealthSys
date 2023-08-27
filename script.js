@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', function() {
     var sairLi = document.getElementById('sair');
     sairLi.addEventListener('click', function() {
-        window.location.href = 'login_screen.html';
+        window.location.href = 'index.html';
     });
 });
 
