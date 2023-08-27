@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>HealthSys</title>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <h2>Carregando...</h2>
+    </div>
+
+    <div class="container" id="content">
+    
+        <main>
+            <header id="cabecalho">
+                <h2>HealthSys</h2>
+                <div class="usuario">
+                    <button id="user">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                    <span>Usuário</span>
+                </div>
+                <nav id="menu_usuario">
+                    <ul>
+                        <li class="perfil">Perfil</li>
+                        <li class="configuracoes">Configurações</li>
+                        <li class="sair" id="sair">Sair</li>
+                    </ul>
+                </nav>
+            </header>
+        
+            <section id="exibicao">
+
+                <section class="estatisticas" id="dadosHospital">
+                    <div class="bloco">
+                        <i class="fas fa-procedures"></i>
+                        <span>Total de Internações:</span>
+                    </div>
+                    <div class="bloco">
+                        <i class="fas fa-bed"></i>
+                        <span>Total de Pacientes na UTI:</span>
+                    </div>
+                    <div class="bloco">
+                        <i class="fas fa-user"></i>
+                        <span>Total de Pacientes Idosos:</span>
+                    </div>
+                    <div class="bloco">
+                        <i class="fas fa-child"></i>
+                        <span>Total de Pacientes Pediátricos:</span>
+                    </div>
+                    <div class="bloco">
+                        <i class="fas fa-users"></i>
+                        <span>Total de Pacientes (12-59 anos):</span>
+                    </div>
+                </section>
+
+                <section id="perfil_user">
+                    <i class="fa-solid fa-xmark" id="fechar"></i>
+                    <i class="fa-solid fa-marker" id="editar"></i>
+                    <div id="container_user">
+                        <div class="user_info">
+                          <div class="user_photo">
+                            <img src="img/foto_user_exemplo.jpg" alt="Foto do Usuário">
+                          </div>
+                          <div class="user_details">
+                            <h3>Nome Completo</h3>
+                            <p><i class="fas fa-envelope"></i> email@example.com</p>
+                            <p><i class="fas fa-phone"></i> (XX) XXXX-XXXX</p>
+                            <p><i class="fas fa-id-card"></i> Matrícula: XXXXXXX</p>
+                            <p><i class="fas fa-briefcase"></i> Ocupação: Cargo/Ocupação</p>
+                          </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="dadosPacientes">
+                    <div id="pesquisa">
+                        <label for="pesquisarNome">Nome:</label>
+                        <input type="text" placeholder="Pesquisar por nome.">
+                        <button>Pesquisar</button>
+                    </div>
+
+                    <div id="listaDePacientes">
+                        <header>
+                            <div>
+                                <h2>Lista de Pacientes</h2>
+                            </div>
+                            <div class="transfer">
+                                <button title="Transferir paciente" id="transfer_btn">
+                                    <i class="fa-solid fa-truck-medical"></i>
+                                </button>
+                                <button title="Lista de transferidos" id="lista_transfer_btn">
+                                    <i class="fa-solid fa-table-list"></i>
+                                </button>
+                            </div>
+                        </header>
+                        <table>
+                            <ul>
+                                <li class="nome">Nome:</li>
+                                <li class="CPF">CPF:</li>
+                                <li class="contato" title="Contato do responsável">Contato:</li>
+                            </ul>
+                        </table>
+
+                        <tbody></tbody>
+                    </div>
+                </section>
+
+                <section id="form_transfer">
+                    <i class="fa-solid fa-xmark" id="fechar_transfer"></i>
+                    <div class="form_content_transfer">
+                        <h2>Transferir paciente</h2>
+                        <form>
+                            <div>
+                                <label for="nome_paciente">Nome do paciente:</label>
+                                <textarea name="nome_do_paciente" id="nome_paciente" cols="1" rows="1"></textarea>
+
+                                <label for="numero_do_paciente">N°. de registro:</label>
+                                <textarea name="numero" id="numero_do_paciente" cols="1" rows="1"></textarea>
+                            </div>
+                                
+                            <div>
+                                <label for="local_saida">De:</label>
+                                <textarea name="local_de_saida" id="local_saida" cols="1" rows="1" placeholder="Local de saída."></textarea>
+
+                                <label for="destino">Para:</label>
+                                <textarea name="local_de_destino" id="destino" cols="1" rows="1" placeholder="Local de destino"></textarea>
+                            </div>
+
+                           <div>
+                                <input type="submit" value="Transferir">
+                                <input type="reset" value="Cancelar">
+                           </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section id="lista_transfer">
+                    <i class="fa-solid fa-xmark" id="fechar_lista_transfer"></i>
+                    <div class="content_lista_transfer">
+                        <h2>Lista de pacientes transferidos</h2>
+                        <ul>
+                            <li>N°.:</li>
+                            <li>Nome:</li>
+                            <li>Destino:</li>
+                        </ul>
+
+                        <tbody></tbody>
+                    </div>
+                </section>
+
+                <section id="dadosProntuario">
+                    <header id="cabecaProntuario">
+                        <div>
+                            <h2>Novo Prontuário</h2>
+                        </div>
+
+                        <div id="btn_lista_pront">
+                            <button>
+                                <i class="fa-solid fa-book"></i>
+                                Lista
+                            </button>
+                        </div>
+                    </header>
+
+                    <form action="#" method="POST">
+                        <header id="dadosDeEntrada">
+                            <section>
+                                <div id="nome_cadastro">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" id="nome" name="nome" required>    
+                                </div>
+
+                                <div id="rgCpf">
+                                    <div id="numeroRg">
+                                        <label for="rg">RG:</label>
+                                        <input type="number" id="rg">
+                                    </div>
+                                    <div id="numeroCpf">
+                                        <label for="cpf">CPF:</label>
+                                        <input type="number" id="cpf">
+                                    </div>
+                                </div>
+                            
+                                <div id="datasGenero">
+                                    <div>
+                                        <label for="data_nascimento">Nascimento:</label>
+                                        <input type="date" id="data_nascimento" name="data_nascimento" required>
+                                    </div>
+
+                                    <div>
+                                        <label for="data_entrada">Entrada do paciente:</label>
+                                        <input type="date" id="data_entrada" name="data_entrada" required>
+                                    </div>
+                                    <!--div de gênero adicionada aqui por questões estéticas-->
+                                    <div id="genero">
+                                        <label for="sexo">Sexo:</label>
+                                        <ul id="sexo">
+                                            <li>
+                                                <input type="checkbox" id="masculino" name="genero" value="masculino">
+                                                <label for="masculino">M</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="feminino" name="genero" value="feminino">
+                                                <label for="feminino">F</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="outro" name="genero" value="outro">
+                                                <label for="outro">Outro</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </section>
+                        </header>
+
+                        <section>
+                            <label for="nomeDoPai">Nome do pai:</label>
+                            <input type="text" id="nomeDoPai" name="nomeDoPai" placeholder="Nome de algum responsável." required>
+
+                            <label for="nomeDaMae">Nome da mãe:</label>
+                            <input type="text" id="nomeDaMae" name="nomeDaMae" placeholder="Nome de algum responsável." required>
+                        </section>
+                    
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, n°, bairro, cidade, estado." required>
+                    
+                        <section id="telefones">
+                            <div>
+                                <label for="telefone">Telefone 1:</label>
+                                <input type="number" id="telefone1" name="telefone" required>
+                            </div>
+                        
+                            <div>
+                                <label for="telefone2">Telefone 2:</label>
+                                <input type="number" id="telefone2" name="telefone2" required>
+                            </div>
+                        </section>
+                    
+                        <label for="historico_medico">Histórico Médico:</label>
+                        <textarea id="historico_medico" name="historico_medico" placeholder="Doenças crônicas, histórico familiar, cirurgias anteriores, alergias, MEDICAMENTOS(se ja utiliza algum), hospitalizações, observações adicionar, etc." required></textarea>
+                    
+                        <label for="exames_fisicos" title="Preencha caso um exame recente seja apresentado.">Exames Físicos:</label>
+                        <textarea id="exames_fisicos" name="exames_fisicos" placeholder="Caso não seja apresentado um exame recente, essa parte deverá ser preenchida pelo médico." required></textarea>
+                    
+                        <label for="diagnosticos">Diagnósticos:</label>
+                        <textarea id="diagnosticos" name="diagnosticos" placeholder="A ser preenchido pelo médico." required></textarea>
+                    
+                        <label for="tratamento">Plano de Tratamento:</label>
+                        <textarea id="tratamento" name="tratamento" placeholder="A ser preenchido pelo médico." required></textarea>
+                    
+                        <label for="evolucao_clinica">Evolução Clínica:</label>
+                        <textarea id="evolucao_clinica" name="evolucao_clinica" placeholder="A ser preenchido por médico ou enfermeiro." required></textarea>
+                    
+                        <label for="comunicacoes">Comunicações:</label>
+                        <textarea id="comunicacoes" name="comunicacoes" placeholder="Orientações fornecidas ao paciente. Deve ser preenchido pelo médico." required></textarea>
+
+                        <div id="botoesAcaoPront">
+                            <input type="submit" value="Enviar">
+                            <input type="reset" value="Limpar dados">
+                        </div>
+                      </form>
+                </section>
+
+                <section id="dadosFarmacia">
+                    <div class="farmacia">
+                        <form action="/registrar_medicamento" method="post">
+                          <h2>Registro de Medicamentos</h2>
+                          <div class="medicamento">
+                                <label for="nome">Nome do Medicamento:</label>
+                                <input type="text" id="nome" name="nome" required>
+                          </div>
+                    
+                          <div class="medicamento">
+                                <label for="descricao">Descrição:</label>
+                                <textarea id="descricao" name="descricao" rows="3"></textarea>
+                          </div>
+                    
+                          <div class="medicamento">
+                                <label for="dosagem">Dosagem:</label>
+                                <input type="text" id="dosagem" name="dosagem">
+                          </div>
+                    
+                          <div class="medicamento">
+                                <label for="fabricante">Fabricante:</label>
+                                <input type="text" id="fabricante" name="fabricante">
+                          </div>
+                    
+                          <input type="submit" value="Registrar Medicamento">
+                        </form>
+
+                        <section class="pesquisa_medicamento">
+                            <h3>Pesquisar medicamento</h3>
+                            <label for="pesquisarMedicamento">
+                                Nome do medicamento:
+                            </label>
+                            <input type="text" placeholder="Azitromicina, paracetamol, morfina, etc.">
+                            <input type="submit" value="pesquisar">
+                        </section>
+
+                        <section class="mais_farmacia">
+                            <h3>Mais opções</h3>
+                            <ul>
+                                <li id="lab">
+                                    <button>
+                                        Laboratório
+                                    </button>
+                                </li>
+                                <li id="stq">
+                                    <button>
+                                        Estoque
+                                    </button>
+                                </li>
+                                <li id="rct">
+                                    <button>
+                                        Receitas
+                                    </button>
+                                </li>
+                                <li id="alerta_paciente">
+                                    <button>
+                                        Alertar paciente
+                                    </button>
+                                </li>
+                                <li id="historico_medicamentos">
+                                    <button>
+                                        Histórico
+                                    </button>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+
+                <section id="dados_equipe">
+                    <header>
+                        <h2>Nossa equipe</h2>
+                        <button id="add_usuario">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </button>
+                    </header>
+                    <br>
+                    <table class="tabela">
+                        <ul>
+                            <li class="nome">Nome:</li>
+                            <li class="contato">Contato:</li>
+                            <li class="Função">Função:</li>
+                        </ul>
+                    </table>
+
+                    <tbody></tbody>
+                </section>
+
+                <section id="acesso_equipe">
+                    <i class="fa-solid fa-xmark" id="fechar_acesso_equipe"></i>
+                    <div class="content_acesso_equipe">
+                        <p>Informe suas credenciais.</p>
+                        <form>
+                            <label for="numero_credencial">Número credenciado:</label>
+                            <textarea name="" id="numero_credencial" cols="1" rows="1"></textarea>
+
+                            <label for="senha_credencial">Senha:</label>
+                            <textarea name="" id="senha_credencial" cols="1" rows="1"></textarea>
+
+                            <div>
+                                <input type="submit" value="Entrar">
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section id="dados_contatos">
+                    <div class="container_contatos">
+                        <h2>Contatos</h2>
+                    
+                        <div class="departamento">
+                          <h3>Departamento de Recursos Humanos</h3>
+                          <ul>
+                            <li><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX</li>
+                            <li><i class="fas fa-envelope"></i> E-mail: rh@hospital.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua do Hospital, 123, Cidade, Estado</li>
+                          </ul>
+                        </div>
+                        
+                        <div class="departamento">
+                          <h3>Departamento Financeiro</h3>
+                          <ul>
+                            <li><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX</li>
+                            <li><i class="fas fa-envelope"></i> E-mail: financeiro@hospital.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua do Hospital, 123, Cidade, Estado</li>
+                          </ul>
+                        </div>
+                        
+                        <div class="departamento">
+                          <h3>Departamento de Tecnologia da Informação</h3>
+                          <ul>
+                            <li><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX</li>
+                            <li><i class="fas fa-envelope"></i> E-mail: ti@hospital.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua do Hospital, 123, Cidade, Estado</li>
+                          </ul>
+                        </div>
+                        
+                        <div class="medicos">
+                          <h3>Diretório Médico</h3>
+                          <ul>
+                            <li><i class="fas fa-user-md"></i> Dr. João Silva - Cardiologia</li>
+                            <li><i class="fas fa-user-md"></i> Dra. Maria Santos - Pediatria</li>
+                            <li><i class="fas fa-user-md"></i> Dr. Carlos Oliveira - Ortopedia</li>
+                          </ul>
+                        </div>
+                    </div>
+                </section>                
+
+            </section> 
+        </main>
+
+        <nav>
+            <ul class="menu">
+                <li>
+                    <button id="home">
+                        <i class="fa-solid fa-house active"></i>
+                        <span class="active">Home</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="pacientes">
+                        <i class="fa-solid fa-hospital-user"></i>
+                        <span>Pacientes</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="prontuarios">
+                        <i class="fa-regular fa-clipboard"></i>
+                        <span>Prontuários</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="farmacia">
+                        <i class="fa-solid fa-prescription-bottle-medical"></i>
+                        <span>Farmácia</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="equipe">
+                        <i class="fa-solid fa-people-group"></i>
+                        <span>Equipe</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="contatos">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <span>Contatos</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,999 @@
+/* Reset de estilos para evitar comportamentos indesejados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    background-image: url(./img/bg\(01\).jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*loading*/
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fff;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#loading-overlay h2 {
+  color: #fff;
+  margin-top: 20px;
+}
+
+/*container*/
+.container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+}
+
+/*PERFIL*/
+#perfil_user {
+    position: fixed;
+    z-index: 9999;
+    top: 45%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#perfil_user #fechar {
+    position: absolute;
+    bottom: -20px;
+
+    color:black;
+    background-color: #fff;
+
+    cursor: pointer;
+
+    width: 1rem;
+    height: 1rem;
+
+    text-align: center;
+
+    font-size: 1rem;
+}
+
+#perfil_user #editar {
+    position: absolute;
+    right: 6%;
+    bottom: 15%;
+    cursor: pointer;
+}
+
+#container_user {
+  background-color:rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 20px;
+  border: 10px solid rgb(10, 33, 51);
+  box-shadow: 0 0 10px black;
+  align-items: center;
+  gap: 20px;
+  width: 60vh;
+}
+
+.user_info {
+    width: 100%;
+    display: flex;
+}
+
+.user_info div {
+    flex: 1;
+}
+
+.user_photo img {
+  width: 120px;
+  height: 150px;
+  border-radius: 5%;
+  object-fit: cover;
+}
+
+.user_details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.user_details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.user_details p i {
+  margin-right: 10px;
+}
+
+
+/* MENU */
+nav {
+    background-color:rgb(10, 33, 51);
+    height: 2.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ffffff63;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.menu li {
+    margin: 10px;
+}
+
+.menu button {
+    background-color: none;
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu button i.active,
+.menu button span.active {
+    color: rgb(1, 212, 195); 
+}
+
+
+/*MAIN*/
+main {
+    width: 100%;
+
+    height: calc(100% - 2.5rem);
+
+    top: 0;
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/*HEADER*/
+#cabecalho {
+    background-color:rgba(21, 57, 87, 0.432);
+    color: rgb(240, 248, 255);
+
+    padding: 8px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.usuario {
+    cursor: pointer;
+}
+
+#user {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+#menu_usuario {
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    top: 46px;
+    right: 0;
+    width: 120px;
+    height: 80px;
+    border: none;
+    padding: 5px;
+}
+
+#menu_usuario ul {
+    list-style: none;
+}
+
+#menu_usuario ul li {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#menu_usuario li:hover {
+    background-color: rgba(169, 169, 169, 0.514);
+}
+
+/*EXIBIÇÃO*/
+#exibicao {
+    overflow: auto;
+}
+
+#exibicao::-webkit-scrollbar {
+    width: 10px;
+    background-color:rgba(21, 57, 87, 0.397);
+}
+
+#exibicao::-webkit-scrollbar-thumb {
+    background-color:rgb(21, 57, 87);
+}
+
+/* ESTATÍSTICAS */
+#dadosHospital {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.bloco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    background-color:rgb(9, 60, 102);
+    color: white;
+    border-radius: 5px;
+}
+
+.bloco i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.bloco span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/*DADOS DOS PACIENTES*/
+#dadosPacientes {
+    width: 100%;
+    padding: 20px;
+    color: aliceblue;
+    display: none;
+    flex-direction: column;
+}
+
+#pesquisa {
+    display: flex;
+
+    width: 100%;
+}
+
+#pesquisa label {
+
+    margin-right: 5px;
+
+    font-size: 1.5rem;
+}
+
+#pesquisa input {
+    width: 90%;
+
+    border-radius: 4px;
+    border: none;
+
+    margin-right: 3px;
+    padding: 3px;
+
+    font-size: 1rem;
+}
+
+#pesquisa button {
+    font-size: 1rem;
+
+    height: 1.7rem;
+
+    padding: 0.3rem;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+#pesquisa, #listaDePacientes {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+#listaDePacientes {
+    margin-top: 50px;
+}
+
+#listaDePacientes header {
+    width: 100%;
+    display: flex;
+}
+
+#listaDePacientes header div {
+    flex: 1;
+}
+
+.transfer {
+    text-align: right;
+}
+
+.transfer button {
+    font-size: 18px;
+
+    padding: 3px;
+
+    border-radius: 4px;
+    border: none;
+
+    margin-right: 10px;
+
+    transition: 0.2s;
+
+    background-color: transparent;
+    color: aliceblue;
+
+    cursor: pointer;
+}
+
+#listaDePacientes ul {
+    margin-top: 15px;
+    width: 100%;
+    background-color:rgb(9, 60, 102);
+    display: flex;
+    list-style: none;
+    font-size: 14px;
+}
+
+#listaDePacientes li {
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.411);
+    padding: 5px;
+    flex: 1;
+}
+
+/*transferir*/
+#form_transfer {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#form_transfer i {
+    position: fixed;
+
+    bottom: -20px;
+
+    cursor: pointer;
+
+    background-color: #fff;
+
+    width: 1rem;
+    height: 1rem;
+
+    font-size: 1rem;
+
+    text-align: center;
+}
+
+.form_content_transfer {
+    background-color:#fff;
+    box-shadow: 0 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 340px;
+}
+
+/*lista de transferidos*/
+#lista_transfer {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+}
+
+#lista_transfer i {
+    position: absolute;
+    bottom: -20px;
+    cursor: pointer;
+
+    background-color: #fff;
+
+    width: 1rem;
+    height: 1rem;
+
+    font-size: 1rem;
+
+    text-align: center;
+}
+
+.content_lista_transfer {
+    background-color: rgb(3, 29, 51);
+    color: #fff;
+    padding: 10px;
+    width: 80vh;
+    height: 80vh;
+    overflow: auto;
+    border: 0.5px solid white;
+}
+
+#lista_transfer ul {
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
+}
+
+#lista_transfer li {
+    flex: 1;
+    text-align: center;
+    border: 1px solid white;
+    padding: 3px;
+}
+
+/*DADOS PRONTURÁRIOS*/
+#dadosProntuario {
+    display: none;
+}
+
+#dadosProntuario header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: aliceblue;
+}
+
+#dadosProntuario header div {
+    flex: 1;
+}
+
+#dadosProntuario header button {
+    font-size: 1.3rem;
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+#btn_lista_pront {
+    text-align: right;
+}
+
+#dadosProntuario form {
+    width: 100%;
+
+
+    padding: 20px;
+
+    border-top: 1px solid #ccc;
+    color: aliceblue;
+    background-color:rgb(9, 60, 102);
+}
+
+#dadosProntuario section{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#dadosProntuario  input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#dadosProntuario  textarea {
+    height: 100px;
+}
+
+#dadosDeEntrada {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+}
+
+#dadosDeEntrada div {
+    width: 100%;
+}
+
+#nome_cadastro {
+    width: 100%;
+}
+
+#nome_cadastro label {
+    width: 100%;
+}
+
+#rgCpf {
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#rgCpf div {
+    width: 100%;
+
+    text-align:left;
+}
+
+#rgCpf div input {
+    width: 100%;
+}
+
+#numeroRg {
+    margin-right: 1rem;
+}
+
+#datasGenero {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+
+    border-bottom: #fff solid 2px;
+}
+
+#datasGenero div {
+    margin-bottom: 0.8rem;
+}
+
+#genero {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+#genero ul {
+    width: 50%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+#telefones {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+
+    border-bottom: 1px solid white;
+}
+
+#telefones div {
+    margin-bottom: 0.7rem;
+}
+
+#botoesAcaoPront {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+#botoesAcaoPront input {
+    background-color:rgb(1, 22, 39);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#botoesAcaoPront input:active {
+    background-color:rgb(47, 126, 190);
+}
+
+
+/*FARMÁCIA*/
+#dadosFarmacia {
+    display: none;
+}
+
+.farmacia {
+    background-color:rgb(9, 60, 102);
+    height: auto;
+    color: aliceblue;
+    padding: 20px;
+}
+
+.farmacia form h2 {
+    margin-bottom: 15px;
+}
+
+.medicamento {
+    margin-bottom: 10px;
+}
+
+#dadosFarmacia label {
+    font-weight: bold;
+}
+
+#dadosFarmacia input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#dadosFarmacia input[type="submit"] {
+    background-color:rgb(3, 29, 51);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#dadosFarmacia input[type="submit"]:hover {
+    background-color:rgb(41, 107, 161);
+}
+
+.pesquisa_medicamento {
+    margin-top: 20px;
+}
+
+.pesquisa_medicamento label, input[type="text"] {
+    margin-bottom: 10px;
+}
+
+.mais_farmacia {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.mais_farmacia ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-align: center;
+}
+
+.mais_farmacia li {
+    flex: 1;
+    margin-top: 10px;
+    margin-right: 5px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#lab {
+    background-image: url(./img/lab.jpg);
+    background-size: cover;
+}
+
+#stq {
+    background-image: url(./img/estoque.jpg);
+    background-size: cover;
+}
+
+#rct {
+    background-image: url(./img/receita.jpg);
+    background-size: cover;
+}
+
+#alerta_paciente {
+    background-image: url(./img/alerta_remedios.jpg);
+    background-size: cover;
+}
+
+#historico_medicamentos {
+    background-image: url(./img/historico.jpg);
+    background-size: cover;
+}
+
+.mais_farmacia button {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color:rgba(9, 60, 102, 0.493);
+    color: aliceblue;
+    padding: 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/*EQUIPE*/
+#dados_equipe {
+    display: none;
+    width: 100%;
+    color: aliceblue;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#dados_equipe header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#dados_equipe header button {
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#dados_equipe ul {
+    display: flex;
+    list-style: none;
+    background-color:rgb(9, 60, 102);
+    font-size: 16px;
+}
+
+#dados_equipe li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.384);
+    padding: 3px;
+}
+
+/*adicionar membro da equipe*/
+#acesso_equipe {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#acesso_equipe i {
+    position: absolute;
+    bottom: -20px;
+}
+
+.content_acesso_equipe {
+    background-color: rgb(10, 33, 51);
+    box-shadow: 0 0 10px black;
+    border-radius: 15px;
+    padding: 10px;
+    color: #fff;
+}
+
+.content_acesso_equipe form {
+    margin-top: 20px;
+}
+
+.content_acesso_equipe textarea {
+    margin-top: 10px;
+}
+
+.content_acesso_equipe input {
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 3px;
+    border-radius: 4px;
+    border: none;
+    transition: 0.2s;
+}
+
+.content_acesso_equipe input:hover {
+    background-color: rgb(47, 126, 190);
+}
+
+.content_acesso_equipe input:active {
+    box-shadow: 0 0 8px black;
+}
+
+
+/*DADOS CONTATOS*/
+#dados_contatos {
+    display: none;
+}
+
+.container_contatos {
+    height: auto;
+    color:rgb(255, 255, 255);
+    padding: 20px;
+    background-color: rgba(3, 17, 29, 0.61);;
+    font-family: sans-serif;
+}
+
+.container_contatos ul {
+    list-style: none;
+}
+
+.container_contatos li {
+    margin-bottom: 5px;
+}
+
+.container_contatos i {
+    margin-right: 10px;
+}
+
+.departamento {
+  margin-top: 10px;
+}
+
+.departamento ul {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.departamento ul li {
+  color:aliceblue;
+}
+
+.departamento i {
+    color: aqua;
+}
+
+.medicos ul {
+    margin-top: 5px;
+    padding: 10px 0 8px 10px;
+}
+
+.medicos ul li {
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.medicos ul li i {
+  color: #ff4d4d;
+}
+
+
+/*RESPONSIVIDADE*/
+@media (max-width: 768px) {
+    body {
+        height: 90vh;
+    }
+    .container {
+        height: 100%
+    }
+
+    nav {
+        height: 3rem;
+    }
+
+    #exibicao::-webkit-scrollbar {
+        width: 0;
+        background-color:rgba(21, 57, 87, 0.397);
+    }
+
+    .menu span {
+        display: none;
+    }
+
+    .menu i {
+        display: block;
+        font-size: 20px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .agendamentos .button {
+        display: block;
+    }
+
+    .estatisticas .bloco {
+        width: 100%;
+    }
+
+    #rgCpf {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    #datasGenero {
+
+        flex-direction: column;
+
+    }
+    
+    #rgCpf div {
+        margin-bottom: 1rem;
+    }
+
+    #rgCpf input {
+        background-color: #fff;
+
+        font-size: 1.3rem;
+    }
+
+    #datasGenero div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #datasGenero input {
+        background-color: #fff;
+    }
+
+    #telefones div  input{
+        width: 100%;
+
+        font-size: 1.3rem;
+
+        border-radius: 5px;
+
+        background-color: #fff;
+    }    
+
+    .content_lista_transfer {
+
+        background-color: rgb(3, 29, 51);
+        color: #fff;
+        padding: 10px;
+        width: 50vh;
+        height: 65vh;
+        overflow: auto;
+        border: 0.5px solid white;
+    }
+
+
+}
+

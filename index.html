@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthSys_login</title>
+    <link rel="stylesheet" href="login_screen.css">
+</head>
+<body>
+    <div class="login-container">
+        <header>
+            <h1>HealthSys</h1>
+        </header>
+
+        <form>
+            <label for="nome_usuario">Usuário</label>
+            <textarea name="usuario" id="nome_usuario" cols="1" rows="1"></textarea>
+
+            <label for="senha_usuario">Senha:</label>
+            <input type="password" name="senha" id="senha_usuario"></input>
+
+            <input type="submit" value="Entrar">
+
+            <a href="#">Recuperar senha</a>
+
+            <div id="gif"></div>
+        </form>
+
+        <footer>Desenvolvido por Bruno Coelho.</footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="login_screen.js"></script>
+</body>
+</html>
