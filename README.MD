@@ -65,4 +65,4 @@ Caso você tenha alguma dúvida ou precise entrar em contato com o desenvolvedor
 Bruno Coelho Muniz Silva
 - Email: brunocoelho66@gmail.com
 - Telefone/whatsapp: (81) 9 8920-6365
-[Linkedin](www.linkedin.com/in/bruno-coelho-97b630220)
+[Linkedin](www.linkedin.com/in/dev-bcoelho)
