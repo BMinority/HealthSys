@@ -37,4 +37,4 @@ $(document).ready(function() {
         $('#mensagem').text(message);
     }
 });
-window.alert('Login: admin, Senha: admin.');
+window.alert("Login: admin, Senha: admin.");
